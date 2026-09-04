@@ -5,26 +5,31 @@ SCROLL ANIMATION
 const sections = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(
-(entries) => {
+    (entries) => {
 
-    entries.forEach((entry) => {
+        entries.forEach((entry) => {
 
-        if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-        }
+            if (entry.isIntersecting) {
 
-    });
+                entry.target.classList.add("active");
 
-},
-{
-    threshold: 0.15
-}
+            }
 
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
 );
 
+
 sections.forEach((section) => {
-observer.observe(section);
+
+    observer.observe(section);
+
 });
+
 
 /* =========================
 NAVBAR SCROLL EFFECT
@@ -34,17 +39,18 @@ const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", () => {
 
-if (window.scrollY > 50) {
+    if (window.scrollY > 50) {
 
-    navbar.classList.add("scrolled");
+        navbar.classList.add("scrolled");
 
-} else {
+    } else {
 
-    navbar.classList.remove("scrolled");
+        navbar.classList.remove("scrolled");
 
-}
+    }
 
 });
+
 
 /* =========================
 MOBILE MENU
@@ -52,8 +58,27 @@ MOBILE MENU
 
 function toggleMenu() {
 
-const menu = document.getElementById("nav-menu");
+    const menu = document.getElementById("nav-menu");
 
-menu.classList.toggle("active");
+    menu.classList.toggle("active");
 
 }
+
+
+/* =========================
+CLOSE MOBILE MENU
+========================= */
+
+const navLinks = document.querySelectorAll("#nav-menu a");
+
+navLinks.forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+        const menu = document.getElementById("nav-menu");
+
+        menu.classList.remove("active");
+
+    });
+
+});
