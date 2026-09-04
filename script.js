@@ -31,6 +31,7 @@ sections.forEach((section) => {
 });
 
 
+
 /* =========================
 NAVBAR SCROLL EFFECT
 ========================= */
@@ -52,6 +53,7 @@ window.addEventListener("scroll", () => {
 });
 
 
+
 /* =========================
 MOBILE MENU
 ========================= */
@@ -63,6 +65,7 @@ function toggleMenu() {
     menu.classList.toggle("active");
 
 }
+
 
 
 /* =========================
