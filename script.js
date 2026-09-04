@@ -1,39 +1,40 @@
 /* =========================
-SCROLL ANIMATION
+   SCROLL REVEAL
 ========================= */
 
 const sections = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-    (entries) => {
+if (sections.length > 0) {
 
-        entries.forEach((entry) => {
+    const observer = new IntersectionObserver(
+        (entries) => {
 
-            if (entry.isIntersecting) {
+            entries.forEach((entry) => {
 
-                entry.target.classList.add("active");
+                if (entry.isIntersecting) {
 
-            }
+                    entry.target.classList.add("active");
 
-        });
+                }
 
-    },
-    {
-        threshold: 0.15
-    }
-);
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
 
-sections.forEach((section) => {
+    sections.forEach((section) => {
+        observer.observe(section);
+    });
 
-    observer.observe(section);
-
-});
-
+}
 
 
 /* =========================
-NAVBAR SCROLL EFFECT
+   NAVBAR SCROLL EFFECT
 ========================= */
 
 const navbar = document.getElementById("navbar");
@@ -53,32 +54,33 @@ window.addEventListener("scroll", () => {
 });
 
 
-
 /* =========================
-MOBILE MENU
+   MOBILE MENU
 ========================= */
 
 function toggleMenu() {
 
-    const menu = document.getElementById("nav-menu");
+    const menu =
+        document.getElementById("nav-menu");
 
     menu.classList.toggle("active");
 
 }
 
 
-
 /* =========================
-CLOSE MOBILE MENU
+   CLOSE MOBILE MENU
 ========================= */
 
-const navLinks = document.querySelectorAll("#nav-menu a");
+const navLinks =
+    document.querySelectorAll("#nav-menu a");
 
 navLinks.forEach((link) => {
 
     link.addEventListener("click", () => {
 
-        const menu = document.getElementById("nav-menu");
+        const menu =
+            document.getElementById("nav-menu");
 
         menu.classList.remove("active");
 
